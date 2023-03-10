@@ -127,7 +127,6 @@ def main() -> None:
                                     seq2seq_eval_dataset) if seq2seq_eval_dataset else None
     test_dataset = TokenizedDataset(args, training_args, model_tokenizer,
                                     seq2seq_test_dataset) if seq2seq_test_dataset else None
-    pickle.dump(t)
     # Initialize our Trainer
     early_stopping_callback = EarlyStoppingCallback(early_stopping_patience=args.seq2seq.patience if args.seq2seq.patience else 5)
     trainer = EvaluateFriendlySeq2SeqTrainer(
