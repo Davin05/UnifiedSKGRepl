@@ -19,11 +19,11 @@ class Constructor(object):
         self.args = args
 
     def to_seq2seq(self, raw_datasets: DatasetDict, cache_root: str):
-        if not len(raw_datasets) == 3:
+        if not len(raw_datasets) == 2:
             raise AssertionError("Train, Dev, Test sections of dataset expected.")
         train_dataset = TrainDataset(self.args, raw_datasets['train'], cache_root)
         dev_dataset = DevDataset(self.args, raw_datasets['validation'], cache_root)
-        test_dataset = TestDataset(self.args, raw_datasets['test'], cache_root)
+        test_dataset = TestDataset(self.args, raw_datasets['validation'], cache_root)
 
         return train_dataset, dev_dataset, test_dataset
 
