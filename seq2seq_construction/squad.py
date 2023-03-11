@@ -48,7 +48,7 @@ class TrainDataset(Dataset):
                 for raw_data in tqdm(self.raw_datasets):
                     extend_data = deepcopy(raw_data)
                     question = extend_data["question"]
-                    answer = extend_data["answers"]["text"]
+                    answer = extend_data["answers"]["text"][0]
                     context = extend_data["context"]
                     extend_data.update({"struct_in": context.lower(),
                                         "text_in": question.lower(),
@@ -82,7 +82,7 @@ class DevDataset(Dataset):
             for raw_data in tqdm(self.raw_datasets):
                 extend_data = deepcopy(raw_data)
                 question = extend_data["question"]
-                answer = extend_data["answers"]["text"]
+                answer = extend_data["answers"]["text"][0]
                 context = extend_data["context"]
 
                 extend_data.update({"struct_in": context.lower(),
@@ -117,7 +117,7 @@ class TestDataset(Dataset):
             for raw_data in tqdm(self.raw_datasets):
                 extend_data = deepcopy(raw_data)
                 question = extend_data["question"]
-                answer = extend_data["answers"]["text"]
+                answer = extend_data["answers"]["text"][0]
                 context = extend_data["context"]
                 extend_data.update({"struct_in": context.lower(),
                                     "text_in": question.lower(),
