@@ -56,7 +56,7 @@ def main() -> None:
         wandb.init(
             project=os.getenv("WANDB_PROJECT", "uni-frame-for-knowledge-tabular-tasks"),
             name=training_args.run_name,
-            entity=os.getenv("WANDB_ENTITY", 'sgtnew'),
+            # entity=os.getenv("WANDB_ENTITY", 'sgtnew'),
             **init_args,
         )
         wandb.config.update(training_args, allow_val_change=True)
