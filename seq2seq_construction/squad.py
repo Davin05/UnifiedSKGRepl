@@ -96,7 +96,7 @@ class DevDataset(Dataset):
         return self.extended_data[index]
 
     def __len__(self):
-        return len(self.extended_data) \\ 2
+        return len(self.extended_data) // 2
 
 
 class TestDataset(Dataset):
@@ -130,4 +130,4 @@ class TestDataset(Dataset):
         return self.extended_data[index]
 
     def __len__(self):
-        return len(self.extended_data) \\ 2
+        return len(self.extended_data) // 2
